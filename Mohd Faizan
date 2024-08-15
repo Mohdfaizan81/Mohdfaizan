@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohd Faizan - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #181818;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .brand {
+            font-size: 28px;
+            font-weight: 700;
+            color: #f05454;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .brand:hover {
+            color: #ffffff;
+        }
+
+        .navbar .menu {
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .navbar .menu a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            width: 100%;
+            font-weight: 600;
+        }
+
+        .navbar .menu a:hover {
+            color: #f05454;
+        }
+
+        .hamburger {
+            font-size: 28px;
+            cursor: pointer;
+            color: #ffffff;
+            border: none;
+            background: none;
+            display: block;
+            transition: transform 0.3s ease;
+            position: absolute;
+            left: 20px;
+        }
+
+        .hamburger:hover {
+            transform: rotate(90deg);
+        }
+
+        /* Main content */
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 100px 20px;
+            text-align: center;
+            height: 100vh;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #f05454;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(240, 84, 84, 0.7);
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 60px;
+            font-weight: 700;
+            margin: 10px 0;
+            letter-spacing: 2px;
+            color: #f05454;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 0.5s;
+            word-wrap: break-word;
+            max-width: 100%;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        h2 {
+            font-size: 35px;
+            margin: 10px 0;
+            color: #ffffff;
+            font-weight: 400;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 1s;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 1.5s;
+        }
+
+        /* Sections */
+        section {
+            padding: 50px 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .certificates, .about, .contact {
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        .certificates img {
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .certificates img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(240, 84, 84, 0.7);
+        }
+
+        .about h3, .contact h3 {
+            font-size: 28px;
+            color: #f05454;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .about p, .contact p {
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #ffffff;
+            font-weight: 300;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media(min-width: 768px) {
+            .navbar .menu {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .hamburger {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#" class="brand">Mohd Faizan</a>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <div class="menu">
+            <a href="#contact" onclick="showSection('contact')">Contact Us</a>
+            <a href="#certificates" onclick="showSection('certificates')">Certificates</a>
+            <a href="#about" onclick="showSection('about')">About Me</a>
+            <a href="#our-game" onclick="showSection('our-game')">Our Game</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <img src="https://cdn.discordapp.com/attachments/1272017587454083094/1272022759031177266/IMG_20240811_063050.jpg?ex=66bd6b82&is=66bc1a02&hm=ae2532f8febce07e7fb77edad17b6a2cd06058e5339e07c89728fbe9fde45e06&" alt="Profile Image" class="profile-img">
+        <h1>Mohd Faizan</h1>
+        <h2>Call Me Brother</h2>
+        <p>Hello, I'm Mohd Faizan, and I have a passion for coding and creating amazing games. I am currently in class 8. I love exploring new technologies and building projects that challenge my mind.</p>
+    </div>
+
+    <!-- Certificates Section -->
+    <section class="certificates" id="certificates">
+        <h2>Certificates</h2>
+        <img src="https://cdn.discordapp.com/attachments/1272017587454083094/1273226552221503520/1723631254345.jpg?ex=66bdd821&is=66bc86a1&hm=fe4f8c8f6b6f6f9df40b82cccbf43217fb91f1b499655b3723acaa7e56a487c3&" alt="Web Development Certificate">
+        <img src="https://cdn.discordapp.com/attachments/1272017587454083094/1273224634082394123/IMG_20240804_165908.jpg?ex=66bdd658&is=66bc84d8&hm=61e57f23ae25cda9d0082426083232978a69846786af34c72d1d4ffb6a37640e&" alt="Python Certificate">
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About Me</h2>
+        <h3>Details</h3>
+        <p><strong>Name:</strong> Mohd Faizan</p>
+        <p><strong>What I Do:</strong> Coding and Game Development</p>
+        <p><strong>Class:</strong> 8</p>
+        <p><strong>Father's Name:</strong> Mohd Ismail</p>
+        <p><strong>Favorite Things:</strong> Coding, Making Games</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2><h3>Get in Touch</h3>
+        <p>If you want to reach out to me, you can contact me via the following:</p>
+        <p><strong>Email:</strong> <a href="mailto:your.email@example.com" style="color: #f05454;">your.email@example.com</a></p>
+        <p><strong>Snapchat:</strong> <a href="https://www.snapchat.com/add/the_hacker08?share_id=U4Zwg94D2lE&locale=en-IN" style="color: #f05454;">the_hacker08</a></p>
+    </section>
+
+    <!-- Our Game Section -->
+    <section class="about" id="our-game">
+        <h2>Our Game</h2>
+        <h3>Escape from Death</h3>
+        <p>Play our first game, "Escape from Death." Click the image below to start playing!</p>
+        <a href="https://zap.struckd.com/games/escape-from-death-2-1" target="_blank">
+            <img src="https://cdn.discordapp.com/attachments/1272017587454083094/1273445665955123231/Screenshot_2024-08-15-06-27-48-266_com.struckd.game-edit.jpg?ex=66bea432&is=66bd52b2&hm=86bd359c5e751a3eb1b127beb544266b7b91ef5c0059d1f388a43f98eefe52ac&" alt="Escape from Death Game" style="max-width: 300px; border-radius: 10px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+        </a>
+    </section>
+
+    <script>
+        // Hamburger menu toggle
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar .menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Scroll to section
+        function showSection(id) {
+            const section = document.getElementById(id);
+            window.scrollTo({
+                top: section.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+
+        // Typewriter effect for the heading
+        const heading = document.querySelector('h1');
+        let text = heading.textContent;
+        heading.textContent = '';
+        let index = 0;
+
+        function typeWriter() {
+            if (index < text.length) {
+                heading.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+
+        window.onload = typeWriter;
+    </script>
+</body>
+</html>
